@@ -388,7 +388,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     ip89cn = "https://api.89ip.cn/tqdl.html?api=1&num=9999&port=&address=&isp="
     r = requests.get(ip89cn)
     if r.status_code == 200:
-        print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[206m89ip.cn\033[0m")
+        print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[30m89ip.cn\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:
@@ -399,7 +399,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
         host = u.split(".com/")[1]
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[206m{host}\033[0m")
+            print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[32m{host}\033[0m")
             lst = r.text.split("\n")
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:

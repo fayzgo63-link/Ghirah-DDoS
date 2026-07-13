@@ -23,7 +23,9 @@ print("""
 \033[31m  └──────┘╰──────╯  ╰────╯  ╰──────╯\033[37m│╰───╮     
                                                  \033[37m╰───╮│
                                                  \033[37m╭───╯│
-while attemps < 100:                             \033[37m╰───╯
+                                                 \033[37m╰───╯
+
+while attemps < 100:                             
     username = input("\033[33mEnter your username: \033[30m")
     password = input("\033[33mEnter your password: \033[30m")
 

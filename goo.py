@@ -59,7 +59,7 @@ conns = 0
 brute = False
 cdn = False
 pps = False
-# ua_list = open('useragent.txt').readlines() # 測試用的 用網路上的列表即可, 不然這種網上的列表 基本都會被WAF規則擋下來
+# ua_list = open('useragent.txt').readlines() # For testing purposes, just use a list found online; otherwise, such lists are usually blocked by WAF rules.
 proxy_file = "proxies.txt"
 output_file = "dpf.txt"
 

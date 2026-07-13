@@ -26,7 +26,7 @@ print("""
                              \033[37m╰───╯ ╰───╯╰────╯╰╯     ╰────╯
 """)
 while attemps < 100:                             
-    username = input("\033[33mEnter your username: \03─3[30m")
+    username = input("\033[33mEnter your username: \033[30m")
     password = input("\033[33mEnter your password: \033[30m")
 
     if username == 'love' and password == 'story':

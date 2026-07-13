@@ -158,7 +158,7 @@ def check_proxy(proxy): # Detecting proxy TCP connections and HTTP requests
         with lock:
             conns += 1
             good_proxies.append(proxy)
-            print(f"[L0veStory]->proxy: \033[35m{proxy_ip:^15s}\033[0m port: \033[33;1m{str(proxy_port):^5s}\033[0m conns: \033[34m{str(conns):^4s}\033[0m >{proto:^5s} \033[32;1mConnected\033[0m")
+            print(f"\033[38;5;206mL0veStory\033[37m=>proxy: \033[35m{proxy_ip:^15s}\033[0m port: \033[33;1m{str(proxy_port):^5s}\033[0m conns: \033[34m{str(conns):^4s}\033[0m >{proto:^5s} \033[32mConnected\033[0m")
             print(f'\33]0;[{conns}] Proxies | ProxyChecker Code By GogoZin\a',end='')
     except Exception as e:
         pass

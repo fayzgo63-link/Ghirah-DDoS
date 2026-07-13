@@ -34,10 +34,10 @@ print("""
 \033[36m╰╯     ╰╯  ╰╯ ╰───╯ └───  ───╯  ╰╯   ╰╯ ╰╯  ╰─╯  ╰────
 """)
 while attemps < 100:                             
-    username = input("\033[33mEnter your username: \033[30m")
-    password = input("\033[33mEnter your password: \033[30m")
+    username = input("\033[32mEnter your username: \033[30m")
+    password = input("\033[32mEnter your password: \033[30m")
 
-    if username == 'love' and password == 'story':
+    if username == 'z' and password == 'black':
         print("\033[38;5;206mM00ving\033[0m")
         break
     else:
@@ -171,7 +171,7 @@ def check_proxy(proxy): # Detecting proxy TCP connections and HTTP requests
             conns += 1
             good_proxies.append(proxy)
             print(f"\033[38;5;206mL0veStory\033[37m=>proxy: \033[35m{proxy_ip:^15s}\033[0m port: \033[32m{str(proxy_port):^5s}\033[0m conns: \033[34m{str(conns):^4s}\033[0m >{proto:^5s} \033[33mConnected\033[0m")
-            print(f'\33]0;[{conns}] Proxies | ProxyChecker Code By GogoZin\a',end='')
+            print(f'\033[38;5;206m;[{conns}] Proxies | ProxyChecker\a',end='')
     except Exception as e:
         pass
         # print(f"[-] FAIL: {proxy} ({e})")

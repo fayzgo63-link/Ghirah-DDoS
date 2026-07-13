@@ -19,14 +19,14 @@ print("""
 \033[38;5;206m│ │      │ │   │ ││ │    │ ││ ╰─────╮
 \033[38;5;206m│ │      │ │   │ ││ │    │ ││ ╭─────╯
 \033[38;5;206m│ │      │ │   │ │╰╮╰╮  ╭╯╭╯│ │
-\033[38;5;206m└───────┐│ ╰───╯ │ ╰╮╰──╯╭╯│ ╰─────╮
+\033[38;5;206m└───────┐│ ╰───╯ │ ╰╮╰──╯╭╯ │ ╰────╮
 \033[38;5;206m  └──────┘╰──────╯  ╰────╯  ╰──────╯       """)
 while attemps < 100:
     username = input("\033[33mEnter your username: \033[30m")
     password = input("\033[33mEnter your password: \033[30m")
 
     if username == 'love' and password == 'story':
-        print("M00ving")
+        print("\033[38;5;206mM00ving\033[0m")
         break
     else:
         print('Incorrect credentials. Check if you have Caps lock on and try again.')
@@ -364,7 +364,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     print("fetch proxies from Proxifly")
     r = requests.get(proxifly)
     if r.status_code == 200:
-        print(f"[L0veStory]->status: \033[32;1m{r.status_code}\033[0m \033[36mProxifly\033[0m")
+        print(f"\033[38;5;206mL0veStory\033[37m=>status: \033[32m{r.status_code}\033[0m \033[36mProxifly\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:
@@ -373,7 +373,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     ip89cn = "https://api.89ip.cn/tqdl.html?api=1&num=9999&port=&address=&isp="
     r = requests.get(ip89cn)
     if r.status_code == 200:
-        print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[32m{r.status_code}\033[0m \033[36m89ip.cn\033[0m")
+        print(f"\033[38;5;220mL0veStory\033[37m=>status: \033[32m{r.status_code}\033[0m \033[36m89ip.cn\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:

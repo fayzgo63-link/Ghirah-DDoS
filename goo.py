@@ -173,7 +173,7 @@ def check_proxy(proxy): # Detecting proxy TCP connections and HTTP requests
         with lock:
             conns += 1
             good_proxies.append(proxy)
-            print(f"\033[38;5;220m[L0veStory]\033[37m=>proxy: \033[35m{proxy_ip:^15s}\033[0m port: \033[32m{str(proxy_port):^5s}\033[0m conns: \033[34m{str(conns):^4s}\033[0m >{proto:^5s} \033[33mConnected\033[0m")
+            print(f"\033[38;5;220m[L0veStory]\033[37m=>proxy: \033[35m{proxy_ip:^15s}\033[0m port:\033[32m{str(proxy_port):^5s}\033[0mconns:\033[34m{str(conns):^4s}\033[0m>{proto:^5s} \033[33mConnected\033[0m")
             print(f'\033[36m;[{conns}] Proxies | ProxyChecker\a',end='')
     except Exception as e:
         pass
@@ -211,7 +211,7 @@ def launchChecker(): #Starting proxy check
         for proxy in sorted(set(good_proxies)):
             f.write(proxy + "\n")
 
-    print(f"\n✅ Check complete! Success.: {len(good_proxies)}, Fail: {len(proxies) - len(good_proxies)}")
+    print(f"\n✅ Check complete! Success.: {len(good_proxies)}, Fail: {len(proxies)-len(good_proxies)}")
     time.sleep(3)
 
 

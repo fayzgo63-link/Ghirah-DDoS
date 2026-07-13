@@ -319,7 +319,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
                     proxy = ip+":"+port
                 download_proxy.append(proxy)
             
-        print(f"[L0veStory]=>status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
+        print(f"\033[38;5;220m[L0veStory]=>status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
 
     print("Start Fetch From FreeProxyUpdate")
     fpu = ["https://freeproxyupdate.com/files/txt/http.txt",
@@ -353,14 +353,14 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     for u in fpu:
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"[L0veStory]=>status: \033[32;1m{r.status_code}\033[0m \033[36m{u}\033[0m")
+            print(f"[L0veStory\033[37m]=>status: \033[36m{r.status_code}\033[0m \033[38;5;22m{u}\033[0m")
             lst = r.text.split('\n')
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
                     download_proxy.append(lines)        
     
     git_proxy_list = [                 #Github proxies is suck, so don't use it
-            "\033[38;5;22mhttps://raw.githubusercontent.com/monosans/proxy-list/refs/heads/main/proxies_anonymous/http.txt",
+            "https://raw.githubusercontent.com/monosans/proxy-list/refs/heads/main/proxies_anonymous/http.txt",
             "https://raw.githubusercontent.com/monosans/proxy-list/refs/heads/main/proxies/http.txt",
             "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/refs/heads/master/http.txt",
             "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/refs/heads/master/https.txt",

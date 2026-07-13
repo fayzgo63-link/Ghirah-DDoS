@@ -32,12 +32,13 @@ print("""
 \033[36m││   │ │    │ ││   ││    ││     ││   ││ ││╰┐ ││ ││
 \033[36m│╭───╯ │╭──╮│ ││   └──   ╰───╮  ││   ││ ││ ╰┐││ │╰───
 \033[36m╰╯     ╰╯  ╰╯ ╰───╯ └───  ───╯  ╰╯   ╰╯ ╰╯  ╰─╯  ╰────
+\033[31m
 \033[31m┌───────────────────────────────────────────────────────────┐
 \033[31m└───────────────────────────────────────────────────────────┘
 """)
 while attemps < 100:                             
-    username = input("\033[32mEnter your username: \033[30m")
-    password = input("\033[32mEnter your password: \033[30m")
+    username = input("\033[36mEnter your username: \033[30m")
+    password = input("\033[36mEnter your password: \033[30m")
 
     if username == 'z' and password == 'black':
         print("\033[38;5;220mM00ving\033[0m")

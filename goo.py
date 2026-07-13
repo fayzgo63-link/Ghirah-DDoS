@@ -371,7 +371,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
             "https://raw.githubusercontent.com/sunny9577/proxy-scraper/refs/heads/master/generated/http_proxies.txt",
             "https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/HTTPS_RAW.txt",
             "https://raw.githubusercontent.com/vakhov/fresh-proxy-list/refs/heads/master/http.txt",
-            "https://raw.githubusercontent.com/r00tee/Proxy-List/refs/heads/main/Https.txt\033[0m"
+            "https://raw.githubusercontent.com/r00tee/Proxy-List/refs/heads/main/Https.txt"
     ]
 
     proxifly = "https://raw.githubusercontent.com/proxifly/free-proxy-list/refs/heads/main/proxies/protocols/http/data.txt"

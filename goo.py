@@ -12,6 +12,11 @@ from queue import Queue
 
 attemps = 0
 os.system("clear")
+print("""
+╭─╮
+╰─╯
+
+       """)
 while attemps < 100:
     username = input("\033[32mEnter your username: \033[0m")
     password = input("\033[31mEnter your password: \033[0m")

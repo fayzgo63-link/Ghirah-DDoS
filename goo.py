@@ -399,7 +399,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
         host = u.split(".com/")[1]
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[32m{host}\033[0m")
+            print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[30m{host}\033[0m")
             lst = r.text.split("\n")
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:

@@ -353,7 +353,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     for u in fpu:
         r = requests.get(u)
         if r.status_code == 200:
-            print(f"[L0veStory\033[37m]=>status: \033[36m{r.status_code}\033[0m \033[38;5;22m{u}\033[0m")
+            print(f"\033[38;5;220m[L0veStory]\033[37m]=>status: \033[36m{r.status_code}\033[0m \033[30m{u}\033[0m")
             lst = r.text.split('\n')
             for lines in lst:
                 if len(lines) > 10 and len(lines) < 22:
@@ -379,7 +379,7 @@ def ProxyScraper(): # Proxy scraping , # Regarding proxy scraping—having done 
     print("fetch proxies from Proxifly")
     r = requests.get(proxifly)
     if r.status_code == 200:
-        print(f"\033[38;5;206m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[38;5;206mProxifly\033[0m")
+        print(f"\033[38;5;220m[L0veStory]\033[37m=>status: \033[36m{r.status_code}\033[0m \033[32mProxifly\033[0m")
         lst = r.text.split('\n')
         for lines in lst:
             if len(lines) > 10 and len(lines) < 22:
